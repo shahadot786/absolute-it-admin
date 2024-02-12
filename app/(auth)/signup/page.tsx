@@ -40,7 +40,7 @@ const SignUp: React.FC = () => {
         setPassword("");
         setDisplayName("");
         setPasswordAgain("");
-        router.push("/");
+        router.push("/dashboard");
       }
     } catch (e) {}
   };
