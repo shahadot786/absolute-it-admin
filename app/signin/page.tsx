@@ -18,10 +18,12 @@ const SignIn = () => {
     try {
       const res = await signInWithEmailAndPassword(email, password);
       if (res) {
-        sessionStorage.setItem("user", "true");
-        setEmail("");
-        setPassword("");
-        router.push("/");
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("user", "true");
+          setEmail("");
+          setPassword("");
+          router.push("/");
+        }
       } else {
         setError("Incorrect email or password");
       }

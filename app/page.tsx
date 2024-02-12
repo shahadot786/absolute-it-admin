@@ -9,10 +9,13 @@ import Image from "next/image";
 export default function Home() {
   const [user] = useAuthState(auth);
   const router = useRouter();
-  const userSession = sessionStorage.getItem("user");
 
-  if (!user && !userSession) {
-    router.push("/signin");
+  if (typeof window !== "undefined") {
+    const userSession = sessionStorage.getItem("user");
+
+    if (!user && !userSession) {
+      router.push("/signin");
+    }
   }
 
   return (
@@ -33,7 +36,9 @@ export default function Home() {
         variant="destructive"
         onClick={() => {
           signOut(auth);
-          sessionStorage.removeItem("user");
+          if (typeof window !== "undefined") {
+            sessionStorage.removeItem("user");
+          }
         }}
       >
         Log out

@@ -34,12 +34,14 @@ const SignUp: React.FC = () => {
         password: password,
         signUpTime: new Date().toISOString(),
       });
-      sessionStorage.setItem("user", "true");
-      setEmail("");
-      setPassword("");
-      setDisplayName("");
-      setPasswordAgain("");
-      router.push("/");
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("user", "true");
+        setEmail("");
+        setPassword("");
+        setDisplayName("");
+        setPasswordAgain("");
+        router.push("/");
+      }
     } catch (e) {}
   };
 
