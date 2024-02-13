@@ -46,15 +46,6 @@ const SignIn = () => {
 
   return (
     <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-      <Link
-        href="/signin"
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute right-4 hidden top-4 md:right-8 md:top-8"
-        )}
-      >
-        Login
-      </Link>
       <div
         className="bg-cover relative hidden h-full flex-col bg-muted p-10 dark:border-r lg:flex text-white"
         style={{ backgroundImage: `url(/bg.jpg)` }}
@@ -80,9 +71,13 @@ const SignIn = () => {
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              &ldquo;This library has saved me countless hours of work and
-              helped me deliver stunning designs to my clients faster than ever
-              before.&rdquo;
+              &ldquo;There is no end to education. It is not that you read a
+              book, pass an examination, and finish with education. The whole of
+              life, from the moment you are born to the moment you die, is a
+              process of learning.&rdquo;{" "}
+              <span className="text-white font-semibold">
+                — Jiddu Krishnamurti
+              </span>
             </p>
             <footer className="text-sm">MD Shahadot Hossain</footer>
           </blockquote>
@@ -120,7 +115,7 @@ const SignIn = () => {
                   autoComplete="email"
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="block w-full rounded-md border-0 bg-white/5 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 bg-white/5 py-1.5 px-1 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -150,7 +145,7 @@ const SignIn = () => {
                   autoComplete="current-password"
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="block w-full rounded-md border-0 bg-white/5 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 bg-white/5 py-1.5 px-1 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
