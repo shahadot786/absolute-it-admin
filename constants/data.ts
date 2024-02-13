@@ -120,32 +120,32 @@ export const navItems: NavItem[] = [
   },
   {
     title: "User",
-    href: "/dashboard/user",
+    href: "/dashboard/backend/user",
     icon: "user",
     label: "user",
   },
   {
     title: "Employee",
-    href: "/dashboard/employee",
+    href: "/dashboard/backend/employee",
     icon: "employee",
     label: "employee",
   },
   {
     title: "Profile",
-    href: "/dashboard/profile",
+    href: "/dashboard/backend/profile",
     icon: "profile",
     label: "profile",
   },
   {
     title: "Kanban",
-    href: "/dashboard/kanban",
+    href: "/dashboard/backend/kanban",
     icon: "kanban",
     label: "kanban",
   },
-  // {
-  //   title: "Login",
-  //   href: "/",
-  //   icon: "login",
-  //   label: "login",
-  // },
+  {
+    title: "Products",
+    href: "/dashboard/frontend/products",
+    icon: "laptop",
+    label: "products",
+  },
 ];
