@@ -1,6 +1,9 @@
 import { Icons } from "@/components/icons";
 import { NavItem, SidebarNavItem } from "@/types";
 
+export const COLLECTION = {
+  categories: "Categories",
+};
 export type User = {
   id: number;
   name: string;
@@ -92,6 +95,11 @@ export const users: User[] = [
   },
 ];
 
+export type Category = {
+  id: string;
+  name: string;
+};
+
 export type Employee = {
   id: number;
   first_name: string;
@@ -119,33 +127,76 @@ export const navItems: NavItem[] = [
     label: "Dashboard",
   },
   {
-    title: "User",
-    href: "/dashboard/backend/user",
-    icon: "user",
-    label: "user",
+    title: "Customer",
+    href: "/dashboard/backend/customers",
+    icon: "usersRound",
+    label: "customers",
   },
   {
-    title: "Employee",
-    href: "/dashboard/backend/employee",
-    icon: "employee",
-    label: "employee",
-  },
-  {
-    title: "Profile",
-    href: "/dashboard/backend/profile",
-    icon: "profile",
-    label: "profile",
-  },
-  {
-    title: "Kanban",
-    href: "/dashboard/backend/kanban",
-    icon: "kanban",
-    label: "kanban",
+    title: "Orders",
+    href: "/dashboard/backend/orders",
+    icon: "baggageClaim",
+    label: "orders",
   },
   {
     title: "Products",
     href: "/dashboard/frontend/products",
     icon: "laptop",
     label: "products",
+  },
+  {
+    title: "Categories",
+    href: "/dashboard/frontend/categories",
+    icon: "layoutList",
+    label: "categories",
+  },
+  // {
+  //   title: "User",
+  //   href: "/dashboard/backend/user",
+  //   icon: "user",
+  //   label: "user",
+  // },
+  // {
+  //   title: "Employee",
+  //   href: "/dashboard/backend/employee",
+  //   icon: "employee",
+  //   label: "employee",
+  // },
+  // {
+  //   title: "Profile",
+  //   href: "/dashboard/backend/profile",
+  //   icon: "profile",
+  //   label: "profile",
+  // },
+  // {
+  //   title: "Kanban",
+  //   href: "/dashboard/backend/kanban",
+  //   icon: "kanban",
+  //   label: "kanban",
+  // },
+
+  // {
+  //   title: "Payments",
+  //   href: "/dashboard/backend/payments",
+  //   icon: "circleDollarSign",
+  //   label: "payments",
+  // },
+  // {
+  //   title: "Revenue",
+  //   href: "/dashboard/backend/revenue",
+  //   icon: "circleDollarSign",
+  //   label: "revenue",
+  // },
+  // {
+  //   title: "Sales",
+  //   href: "/dashboard/backend/sales",
+  //   icon: "kanban",
+  //   label: "sales",
+  // },
+  {
+    title: "Settings",
+    href: "/dashboard/backend/settings",
+    icon: "kanban",
+    label: "settings",
   },
 ];

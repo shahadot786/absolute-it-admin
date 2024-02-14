@@ -8,9 +8,6 @@ import { useRouter } from "next/navigation";
 import { auth } from "@/firebase";
 import Image from "next/image";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");

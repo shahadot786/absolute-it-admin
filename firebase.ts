@@ -1,7 +1,22 @@
 import { getApp, getApps, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
-import { getFirestore } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  serverTimestamp,
+  updateDoc,
+  deleteDoc,
+  collection,
+  addDoc,
+  arrayUnion,
+  arrayRemove,
+  orderBy,
+  limit,
+  query,
+  getDocs,
+} from "firebase/firestore";
 import { getStorage, ref as storageRef } from "firebase/storage";
 import { useUploadFile } from "react-firebase-hooks/storage";
 
@@ -32,4 +47,17 @@ export {
   storage,
   storageRef,
   useUploadFile,
+  doc,
+  setDoc,
+  serverTimestamp,
+  updateDoc,
+  deleteDoc,
+  collection,
+  addDoc,
+  arrayUnion,
+  arrayRemove,
+  orderBy,
+  limit,
+  query,
+  getDocs,
 };
