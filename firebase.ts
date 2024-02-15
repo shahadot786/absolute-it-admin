@@ -21,13 +21,13 @@ import { getStorage, ref as storageRef } from "firebase/storage";
 import { useUploadFile } from "react-firebase-hooks/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAg_8IkjlgpeEvJUZAgtZMldLQQ_4L4LX8",
-  authDomain: "absolute-it-fafe6.firebaseapp.com",
-  projectId: "absolute-it-fafe6",
-  storageBucket: "absolute-it-fafe6.appspot.com",
-  messagingSenderId: "651466419253",
-  appId: "1:651466419253:web:d9e99ec59c62c1df7c157c",
-  measurementId: "G-ZCHY54TE7P",
+  apiKey: "AIzaSyAlV-CwChTSXHqD4M2H4Pvy_9DHY_T-O-Y",
+  authDomain: "absit-admin.firebaseapp.com",
+  projectId: "absit-admin",
+  storageBucket: "absit-admin.appspot.com",
+  messagingSenderId: "256597994147",
+  appId: "1:256597994147:web:323e5c033b8eab4633ad16",
+  measurementId: "G-P6NZS8932J",
 };
 
 // Initialize Firebase

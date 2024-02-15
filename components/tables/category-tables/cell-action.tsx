@@ -8,10 +8,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Category } from "@/constants/data";
+import { COLLECTION, Category } from "@/constants/data";
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { db, deleteDoc, doc } from "@/firebase";
 
 interface CellActionProps {
   data: Category;
@@ -21,7 +22,12 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  const onConfirm = async () => {};
+
+  const onConfirm = async () => {
+    await deleteDoc(doc(db, COLLECTION.categories, data?.id));
+    setOpen(false);
+    setLoading(false);
+  };
 
   const navigateToUpdatePage = () => {
     const serializedData = JSON.stringify(data);
