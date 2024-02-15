@@ -19,7 +19,7 @@ import { Separator } from "@/components/ui/separator";
 import { Heading } from "@/components/ui/heading";
 import { useToast } from "../ui/use-toast";
 import { AlertModal } from "../modal/alert-modal";
-import { addDoc, collection, db, updateDoc, doc } from "@/firebase";
+import { addDoc, collection, db, updateDoc, doc, deleteDoc } from "@/firebase";
 import { COLLECTION } from "@/constants/data";
 
 const formSchema = z.object({
@@ -30,7 +30,7 @@ type CategoryFormValues = z.infer<typeof formSchema>;
 
 interface CategoryFormProps {
   initialData: {
-    id: number;
+    id: string;
     name: string;
   } | null;
 }
@@ -52,7 +52,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({ initialData }) => {
   const defaultValues = initialData
     ? initialData
     : {
-        id: new Date().getTime(),
+        id: new Date().getTime().toString(),
         name: "",
       };
 
@@ -97,9 +97,11 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({ initialData }) => {
   const onDelete = async () => {
     try {
       setLoading(true);
-      //   await axios.delete(`/api/${params.storeId}/products/${params.productId}`);
+      await deleteDoc(
+        doc(db, COLLECTION.categories, initialData?.id ? initialData?.id : "")
+      );
       router.refresh();
-      router.push(`/${params.storeId}/categories`);
+      router.push(`/dashboard/frontend/categories`);
     } catch (error: any) {
     } finally {
       setLoading(false);

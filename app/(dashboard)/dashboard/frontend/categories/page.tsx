@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -12,7 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import { COLLECTION, Category } from "@/constants/data";
 import { cn } from "@/lib/utils";
 import { Plus } from "lucide-react";
-import { collection, db, getDocs } from "@/firebase";
+import { collection, db, getDocs, orderBy, query } from "@/firebase";
 
 type SearchParams = {
   page?: string;
@@ -39,7 +38,7 @@ export default function Page({ searchParams }: ParamsProps) {
     async function fetchData() {
       try {
         const querySnapshot = await getDocs(
-          collection(db, COLLECTION.categories)
+          query(collection(db, COLLECTION.categories), orderBy("id", "desc"))
         );
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -51,7 +50,7 @@ export default function Page({ searchParams }: ParamsProps) {
       } catch (error) {}
     }
     fetchData();
-  }, []);
+  }, [categoryData, getDocs]);
 
   return (
     <>
