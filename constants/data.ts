@@ -4,6 +4,13 @@ import { NavItem, SidebarNavItem } from "@/types";
 export const COLLECTION = {
   categories: "Categories",
 };
+export const ROUTE_LINK = {
+  categories: "/dashboard/frontend/categories",
+};
+export const NAV_TITLE = {
+  categories: "Categories",
+};
+
 export type User = {
   id: number;
   name: string;
@@ -146,7 +153,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "Categories",
-    href: "/dashboard/frontend/categories",
+    href: ROUTE_LINK.categories,
     icon: "layoutList",
     label: "categories",
   },

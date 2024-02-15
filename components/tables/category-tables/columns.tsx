@@ -12,6 +12,7 @@ export const columns: ColumnDef<Category>[] = [
         checked={table.getIsAllPageRowsSelected()}
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
+        hidden
       />
     ),
     cell: ({ row }) => (
@@ -19,6 +20,7 @@ export const columns: ColumnDef<Category>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
+        hidden
       />
     ),
     enableSorting: false,

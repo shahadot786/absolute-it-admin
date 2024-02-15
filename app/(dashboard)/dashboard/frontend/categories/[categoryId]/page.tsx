@@ -1,6 +1,7 @@
 "use client";
 import BreadCrumb from "@/components/breadcrumb";
 import { CategoryForm } from "@/components/forms/category-form";
+import { NAV_TITLE, ROUTE_LINK } from "@/constants/data";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 
@@ -13,8 +14,8 @@ export default function Page() {
       : JSON.parse(decodeURIComponent(serializedData));
 
   const breadcrumbItems = [
-    { title: "Categories", link: "/dashboard/frontend/categories" },
-    { title: "Create", link: "/dashboard/frontend/categories/create" },
+    { title: NAV_TITLE.categories, link: ROUTE_LINK.categories },
+    { title: "Create", link: `${ROUTE_LINK.categories}/create` },
   ];
   return (
     <div className="flex-1 space-y-4 p-8">

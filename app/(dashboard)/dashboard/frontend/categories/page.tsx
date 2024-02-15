@@ -8,7 +8,7 @@ import { columns } from "@/components/tables/category-tables/columns";
 import { buttonVariants } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
-import { COLLECTION, Category } from "@/constants/data";
+import { COLLECTION, Category, NAV_TITLE, ROUTE_LINK } from "@/constants/data";
 import { cn } from "@/lib/utils";
 import { Plus } from "lucide-react";
 import { collection, db, getDocs, orderBy, query } from "@/firebase";
@@ -24,7 +24,7 @@ type ParamsProps = {
 };
 
 const breadcrumbItems = [
-  { title: "Categories", link: "/dashboard/frontend/categories" },
+  { title: NAV_TITLE.categories, link: ROUTE_LINK.categories },
 ];
 
 export default function Page({ searchParams }: ParamsProps) {

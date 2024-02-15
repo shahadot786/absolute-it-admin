@@ -188,15 +188,15 @@ export function CategoryTable<TData, TValue>({
 
   return (
     <>
-      <Input
+      {/* <Input
         placeholder={`Search ${searchKey}...`}
         value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
         onChange={(event) =>
           table.getColumn(searchKey)?.setFilterValue(event.target.value)
         }
         className="w-full md:max-w-sm"
-      />
-      <ScrollArea className="rounded-md border h-[calc(80vh-220px)]">
+      /> */}
+      <ScrollArea className="rounded-md border h-[calc(80vh-150px)]">
         <Table className="relative">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -248,7 +248,7 @@ export function CategoryTable<TData, TValue>({
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
 
-      <div className="flex flex-col gap-2 sm:flex-row items-center justify-end space-x-2 py-4">
+      {/* <div className="flex flex-col gap-2 sm:flex-row items-center justify-end space-x-2 py-4">
         <div className="flex items-center justify-between w-full">
           <div className="flex-1 text-sm text-muted-foreground">
             {table.getFilteredSelectedRowModel().rows.length} of{" "}
@@ -325,7 +325,7 @@ export function CategoryTable<TData, TValue>({
             </Button>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
