@@ -28,6 +28,9 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 // import FileUpload from "@/components/FileUpload";
 import { useToast } from "../ui/use-toast";
+import useImageUpload from "@/hooks/useImageUpload";
+import Image from "next/image";
+import { ImageModal } from "../modal/image-modal";
 const ImgSchema = z.object({
   fileName: z.string(),
   name: z.string(),
@@ -75,6 +78,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const description = initialData ? "Edit a product." : "Add a new product";
   const toastMessage = initialData ? "Product updated." : "Product created.";
   const action = initialData ? "Save changes" : "Create";
+  const { imageUrl, setImage, uploadImage, error } = useImageUpload();
 
   const defaultValues = initialData
     ? initialData
@@ -90,6 +94,15 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     resolver: zodResolver(formSchema),
     defaultValues,
   });
+
+  const handleImageChange = (e: any) => {
+    if (e.target.files && e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+  const handleUpload = () => {
+    uploadImage();
+  };
 
   const onSubmit = async (data: ProductFormValues) => {
     try {
@@ -118,41 +131,19 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     }
   };
 
-  const onDelete = async () => {
-    try {
-      setLoading(true);
-      //   await axios.delete(`/api/${params.storeId}/products/${params.productId}`);
-      router.refresh();
-      router.push(`/${params.storeId}/products`);
-    } catch (error: any) {
-    } finally {
-      setLoading(false);
-      setOpen(false);
-    }
-  };
-
-  const triggerImgUrlValidation = () => form.trigger("imgUrl");
-
   return (
     <>
-      {/* <AlertModal
+      <ImageModal
         isOpen={open}
         onClose={() => setOpen(false)}
-        onConfirm={onDelete}
+        onConfirm={() => setOpen(false)}
         loading={loading}
-      /> */}
+        imageUrl={imageUrl}
+        handleImageChange={handleImageChange}
+        handleUpload={handleUpload}
+      />
       <div className="flex items-center justify-between">
         <Heading title={title} description={description} />
-        {initialData && (
-          <Button
-            disabled={loading}
-            variant="destructive"
-            size="sm"
-            onClick={() => setOpen(true)}
-          >
-            <Trash className="h-4 w-4" />
-          </Button>
-        )}
       </div>
       <Separator />
       <Form {...form}>
@@ -160,23 +151,23 @@ export const ProductForm: React.FC<ProductFormProps> = ({
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 w-full"
         >
-          <FormField
-            control={form.control}
-            name="imgUrl"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Images</FormLabel>
-                <FormControl>
-                  {/* <FileUpload
-                    onChange={field.onChange}
-                    value={field.value}
-                    onRemove={field.onChange}
-                  /> */}
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              width={100}
+              height={100}
+              alt="Product Picture"
+            />
+          )}
+          {!imageUrl && (
+            <Button
+              onClick={() => setOpen(true)}
+              variant={"outline"}
+              disabled={loading}
+            >
+              Upload Image
+            </Button>
+          )}
           <div className="md:grid md:grid-cols-3 gap-8">
             <FormField
               control={form.control}

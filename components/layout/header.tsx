@@ -25,7 +25,7 @@ export default function Header() {
           </Link>
         </div>
         <h1 className=" text-right text-2xl font-bold leading-9 tracking-tight ">
-          Absolute IT
+          Liton Gadgets
         </h1>
         <div className={cn("block lg:!hidden")}>
           <MobileSidebar />

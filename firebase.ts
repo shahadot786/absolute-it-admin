@@ -16,6 +16,7 @@ import {
   limit,
   query,
   getDocs,
+  where,
 } from "firebase/firestore";
 import { getStorage, ref as storageRef } from "firebase/storage";
 import { useUploadFile } from "react-firebase-hooks/storage";
@@ -60,4 +61,5 @@ export {
   limit,
   query,
   getDocs,
+  where,
 };
