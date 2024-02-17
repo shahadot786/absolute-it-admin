@@ -31,6 +31,7 @@ import { useToast } from "../ui/use-toast";
 import useImageUpload from "@/hooks/useImageUpload";
 import Image from "next/image";
 import { ImageModal } from "../modal/image-modal";
+import { Textarea } from "../ui/textarea";
 const ImgSchema = z.object({
   fileName: z.string(),
   name: z.string(),
@@ -78,7 +79,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const description = initialData ? "Edit a product." : "Add a new product";
   const toastMessage = initialData ? "Product updated." : "Product created.";
   const action = initialData ? "Save changes" : "Create";
-  const { imageUrl, setImage, uploadImage, error } = useImageUpload();
+  const { imageUrl, setImage, uploadImage, error } =
+    useImageUpload("Product-Image");
 
   const defaultValues = initialData
     ? initialData
@@ -188,23 +190,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             />
             <FormField
               control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={loading}
-                      placeholder="Product description"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name="price"
               render={({ field }) => (
                 <FormItem>
@@ -245,6 +230,23 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       ))}
                     </SelectContent>
                   </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      disabled={loading}
+                      placeholder="Product description"
+                      {...field}
+                    />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}

@@ -52,7 +52,7 @@ const SignUp: React.FC = () => {
           <Image
             className="mx-auto w-auto"
             src="/service.png"
-            alt="Liton Gadgets"
+            alt="Absolute IT"
             width={100}
             height={100}
           />

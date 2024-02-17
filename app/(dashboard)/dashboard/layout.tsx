@@ -3,8 +3,8 @@ import Sidebar from "@/components/layout/sidebar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Liton Gadgets",
-  description: "Liton Gadgets E-commerce admin dashboard",
+  title: "Absolute IT",
+  description: "Absolute IT E-commerce admin dashboard",
 };
 
 export default function DashboardLayout({

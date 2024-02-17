@@ -43,6 +43,7 @@ export default function Page({ searchParams }: ParamsProps) {
         const data = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           name: doc.data().name,
+          icon: doc.data().icon,
         }));
         setCategoryData(data);
         setTotalCategory(data.length);
@@ -50,7 +51,7 @@ export default function Page({ searchParams }: ParamsProps) {
       } catch (error) {}
     }
     fetchData();
-  }, [categoryData, getDocs]);
+  }, [getDocs]);
 
   return (
     <>

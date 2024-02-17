@@ -3,6 +3,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Category } from "@/constants/data";
 import { ColumnDef } from "@tanstack/react-table";
 import { CellAction } from "./cell-action";
+import Image from "next/image";
 
 export const columns: ColumnDef<Category>[] = [
   {
@@ -29,6 +30,18 @@ export const columns: ColumnDef<Category>[] = [
   {
     accessorKey: "name",
     header: "NAME",
+  },
+  {
+    accessorKey: "icon",
+    header: "Icon",
+    cell: ({ row }) => (
+      <Image
+        src={row.original.icon}
+        width={40}
+        height={40}
+        alt="Category Icon"
+      />
+    ),
   },
   {
     id: "actions",

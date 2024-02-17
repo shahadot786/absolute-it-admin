@@ -62,7 +62,7 @@ const SignIn = () => {
             <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
           </svg>
           <h1 className=" text-center text-2xl font-bold leading-9 tracking-tight ">
-            Liton Gadgets
+            Absolute IT
           </h1>
         </div>
         <div className="relative z-20 mt-auto">
@@ -85,7 +85,7 @@ const SignIn = () => {
           <Image
             className="mx-auto w-auto"
             src="/service.png"
-            alt="Liton Gadgets"
+            alt="Absolute IT"
             width={100}
             height={100}
           />

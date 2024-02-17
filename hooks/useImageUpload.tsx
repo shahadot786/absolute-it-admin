@@ -15,8 +15,9 @@ interface ImageUploadResult {
   setImage: (image: File) => void;
   uploadImage: () => void;
 }
+type folderName = string;
 
-const useImageUpload = (): ImageUploadResult => {
+const useImageUpload = (folderName: folderName): ImageUploadResult => {
   const [image, setImage] = useState<File | null>(null);
   const [imageUrl, setImageUrl] = useState<string>("");
   const [uploadProgress, setUploadProgress] = useState<number>(0);
@@ -27,7 +28,7 @@ const useImageUpload = (): ImageUploadResult => {
 
     const storageRef: StorageReference = ref(
       storage,
-      "Products-images/" + image.name
+      `${folderName}/` + image.name
     );
     const uploadTask = uploadBytesResumable(storageRef, image);
 
