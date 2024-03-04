@@ -6,9 +6,14 @@ const Calculation: React.FC = () => {
   const [amount, setAmount] = useState<number>(0);
   const [discount, setDiscount] = useState<number>(0);
   const [result, setResult] = useState<number | null>(null);
+  const [error, setError] = useState<string>("");
 
   const calculate = (amount: number, discount: number): number | null => {
-    if (discount >= 100) return null; // Prevent division by zero or negative discounts
+    if (discount >= 100) {
+      setError("Discount must be less than 100%");
+      return null;
+    }
+    setError("");
     return (amount * 100) / (100 - discount);
   };
 
@@ -28,6 +33,7 @@ const Calculation: React.FC = () => {
     >
       <div>
         <h1 className="text-5xl font-bold my-4">Discount Calculator</h1>
+
         <div>
           <div>
             <label htmlFor="amount" className="text-lg font-bold my-2">
@@ -58,7 +64,7 @@ const Calculation: React.FC = () => {
         </div>
         <button
           onClick={handleCalculate}
-          className="mt-5 flex w-full justify-center rounded-md bg-green-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+          className="mt-5 flex justify-center rounded-md bg-green-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
         >
           Calculate
         </button>
@@ -67,6 +73,8 @@ const Calculation: React.FC = () => {
             Original Amount: {result.toFixed(0)}
           </p>
         )}
+        {error && <p className="text-red-600 my-2">{error}</p>}
+        {/* Display error message if present */}
       </div>
     </div>
   );
